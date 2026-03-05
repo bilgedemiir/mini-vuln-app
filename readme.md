@@ -1,19 +1,25 @@
-# Mini Web Security Demo (Flask)
-## This project demonstrates common web vulnerabilities and their secure fixes.
+# Flask Security Lab
 
-Branches
-vulnerable → intentionally vulnerable version
-secure → fixed secure implementation
-Features
-Register / Login
-Comment system
-Admin panel
-Technologies
-Python
-Flask
-SQLite
-bcrypt
-Run Locally
-python -m venv .venv .venv\Scripts\activate pip install -r requirements.txt
+This project is a small Flask web application created to demonstrate common web security vulnerabilities and how to fix them.
 
-python -c "from db import init_db; init_db()" python app.py
+The repository contains two main implementations:
+
+- **vulnerable** → intentionally vulnerable version used for learning and demonstrating attacks
+- **secure** → fixed and secure implementation
+
+This project was built as part of my cybersecurity learning process.
+
+
+# Project Overview
+
+The application includes a simple web system with:
+
+- User registration
+- Login system
+- Comment system
+- Admin panel
+
+The vulnerable version demonstrates common security issues, while the secure version shows how those vulnerabilities can be fixed.
+
+
+# Repository Structure
