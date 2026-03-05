@@ -7,18 +7,13 @@ from db import get_db, close_db
 
 app = Flask(__name__)
 
-# SECURE: secret key env'den (yoksa local için random fallback)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY") or secrets.token_hex(32)
 
-# SECURE: cookie/session ayarları
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="Lax",
-    # HTTPS kullanırsan True yap:
-    # SESSION_COOKIE_SECURE=True,
 )
 
-# Logout sonrası back tuşu cache'ten göstermesin
 @app.after_request
 def add_no_cache_headers(response):
     response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
@@ -31,10 +26,6 @@ def add_no_cache_headers(response):
 def teardown_db(exception):
     close_db(exception)
 
-
-# -----------------------
-# CSRF (basit)
-# -----------------------
 def get_csrf_token():
     token = session.get("csrf_token")
     if not token:
@@ -54,10 +45,6 @@ def require_csrf():
 def inject_csrf():
     return {"csrf_token": get_csrf_token()}
 
-
-# -----------------------
-# Auth helpers
-# -----------------------
 def is_logged_in():
     return "user_id" in session
 
@@ -86,7 +73,6 @@ def register():
 
         db = get_db()
         try:
-            # SECURE: register herkesi user yapar (hardcoded admin yok)
             db.execute(
                 "INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)",
                 (username, password_hash, "user"),
