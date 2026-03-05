@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mini Vuln App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+    <a href="/register_vuln">Register Vuln</a>
+    <a href="/login_vuln">Login Vuln</a>
+    <a href="/comments">Comments</a>
+    <a href="/search">Search</a>
+    <a href="/admin">Admin</a>
+    <a href="/logout">Logout</a>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+</body>
+</html>

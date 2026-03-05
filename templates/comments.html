@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Comments</h2>
+
+<p>
+  XSS demo modu:
+  <b>{% if xss_demo %}AÇIK{% else %}KAPALI{% endif %}</b>
+</p>
+
+<form method="POST">
+  <input type="text" name="content" placeholder="write comment" required>
+  <button type="submit">Send</button>
+</form>
+
+<hr>
+
+{% for comment in comments %}
+  <div class="comment">
+    <div class="meta"><b>{{ comment.username }}</b> • {{ comment.created_at }}</div>
+    <div>
+      {% if xss_demo %}
+        {{ comment.content | safe }}
+      {% else %}
+        {{ comment.content }}
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

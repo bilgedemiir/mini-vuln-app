@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Panel (Vulnerable)</h2>
+
+<p>
+  XSS demo modu:
+  <b>{% if xss_demo %}AÇIK{% else %}KAPALI{% endif %}</b>
+</p>
+
+<hr>
+
+{% for c in comments %}
+  <div style="margin-bottom:12px; padding:8px; border:1px solid #ddd;">
+    <div>
+      <b>ID:</b> {{ c.id }} |
+      <b>User:</b> {{ c.username }} |
+      <b>Time:</b> {{ c.created_at }}
+    </div>
+
+    <div>
+      <b>Content:</b>
+      {% if xss_demo %}
+        {{ c.content | safe }}
+      {% else %}
+        {{ c.content }}
+      {% endif %}
+    </div>
+
+    <form method="POST" action="/admin/delete/{{ c.id }}" style="margin-top:8px;">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+{% endfor %}
+{% endblock %}
