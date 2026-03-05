@@ -1,0 +1,26 @@
+import sqlite3
+from flask import g
+
+DATABASE = "database.db"
+
+
+def get_db():
+    if "db" not in g:
+        conn = sqlite3.connect(DATABASE)
+        conn.row_factory = sqlite3.Row
+        g.db = conn
+    return g.db
+
+
+def close_db(_e=None):
+    db = g.pop("db", None)
+    if db is not None:
+        db.close()
+
+
+def init_db():
+    db = sqlite3.connect(DATABASE)
+    with open("schema.sql", "r", encoding="utf-8") as f:
+        db.executescript(f.read())
+    db.commit()
+    db.close()

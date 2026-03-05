@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 24px;
+  max-width: 900px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+nav a:hover {
+  background: #f3f3f3;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+input[type="text"], input[type="password"] {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 280px;
+}
+
+button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 16px 0;
+}
+
+.comment {
+  padding: 10px 12px;
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}

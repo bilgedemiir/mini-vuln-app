@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Panel (Secure)</h2>
+
+<hr>
+
+{% for c in comments %}
+  <div class="comment">
+    <div class="meta"><b>ID:</b> {{ c.id }} • <b>User:</b> {{ c.username }} • {{ c.created_at }}</div>
+    <div>{{ c.content }}</div>
+
+    <form method="POST" action="/admin/delete/{{ c.id }}" style="margin-top:10px;">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+{% endfor %}
+{% endblock %}

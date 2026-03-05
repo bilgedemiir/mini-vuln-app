@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>User Comment Search</h2>
+
+<form method="POST">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+  <input type="text" name="q" placeholder="username" value="{{ q }}" required>
+  <button type="submit">Search</button>
+</form>
+
+<hr>
+
+{% if results %}
+  {% for r in results %}
+    <div class="comment">
+      <div class="meta"><b>{{ r.username }}</b> • {{ r.created_at }}</div>
+      <div>{{ r.content }}</div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No results.</p>
+{% endif %}
+{% endblock %}

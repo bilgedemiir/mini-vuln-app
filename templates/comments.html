@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Comments</h2>
+
+<form method="POST">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+  <input type="text" name="content" placeholder="write comment" required>
+  <button type="submit">Send</button>
+</form>
+
+<hr>
+
+{% for comment in comments %}
+  <div class="comment">
+    <div class="meta"><b>{{ comment.username }}</b> • {{ comment.created_at }}</div>
+    <div>{{ comment.content }}</div>
+  </div>
+{% endfor %}
+{% endblock %}
