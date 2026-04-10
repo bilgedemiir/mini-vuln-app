@@ -9,3 +9,9 @@ This branch is intentionally vulnerable for educational purposes.
 - Hardcoded admin role logic
 - Missing CSRF protection
 - Weak secret key
+
+  ## Branches
+
+- vulnerable: Contains intentionally vulnerable code for demonstration
+- secure: Includes fixed and secure implementations
+- main: Base version of the project
