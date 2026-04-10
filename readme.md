@@ -102,5 +102,5 @@ Do not deploy vulnerable code in production environments.
 
 - vulnerable: Contains intentionally vulnerable code for demonstration
 - secure: Includes fixed and secure implementations
-- main: Base version of the project
+- master: Base version of the project
 
