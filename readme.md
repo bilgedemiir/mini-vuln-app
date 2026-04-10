@@ -14,4 +14,4 @@ This branch is intentionally vulnerable for educational purposes.
 
 - vulnerable: Contains intentionally vulnerable code for demonstration
 - secure: Includes fixed and secure implementations
-- main: Base version of the project
+- master: Base version of the project
