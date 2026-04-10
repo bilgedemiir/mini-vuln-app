@@ -14,4 +14,4 @@ This branch contains the fixed version of the application.
 
 - vulnerable: Contains intentionally vulnerable code for demonstration
 - secure: Includes fixed and secure implementations
-- main: Base version of the project
+- master: Base version of the project
