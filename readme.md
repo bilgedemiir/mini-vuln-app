@@ -97,3 +97,10 @@ python app.py
 This project contains intentionally vulnerable code in the **vulnerable branch** for educational purposes only.
 
 Do not deploy vulnerable code in production environments.
+
+## Branches
+
+- vulnerable: Contains intentionally vulnerable code for demonstration
+- secure: Includes fixed and secure implementations
+- main: Base version of the project
+
